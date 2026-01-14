@@ -182,7 +182,7 @@ export async function updateSessao(id: number, data: {
             data: {
                 data: data.data ? new Date(new Date(data.data).toISOString().split('T')[0] + 'T12:00:00') : undefined,
                 valorPraticado: data.valorPraticado,
-                situacao: data.situacao,
+                situacao: data.situacao ? (data.situacao as "ABERTO" | "PAGO" | "CANCELADO" | "FALTOU") : undefined,
                 observacoes: data.observacoes
             }
         })
